@@ -23,15 +23,15 @@ public class Graph {
             for (int i = 0; i < adjacencyList.size(); i++) {
                 if (adjacencyList.get(i).getNodeNum() == graphEdge.getVertex1().getNodeNum()) {
                     if (checkExistance.get(1) == -1) {
-                        int index = adjacencyList.indexOf(graphEdge.getVertex2());
-                        adjacencyList.get(i).neighborAdding(adjacencyList.get(index));
+                        //int index = adjacencyList.indexOf(graphEdge.getVertex2());
+                        adjacencyList.get(i).neighborAdding(graphEdge.getVertex2());
                     } else {
                         adjacencyList.get(i).neighborAdding(adjacencyList.get(checkExistance.get(1)));
                     }
                 } else if (adjacencyList.get(i).getNodeNum() == graphEdge.getVertex2().getNodeNum()) {
                     if (checkExistance.get(0) == -1) {
-                        int index = adjacencyList.indexOf(graphEdge.getVertex1());
-                        adjacencyList.get(i).neighborAdding(adjacencyList.get(index));
+                        //int index = adjacencyList.indexOf(graphEdge.getVertex1());
+                        adjacencyList.get(i).neighborAdding(graphEdge.getVertex1());
                     } else {
                         adjacencyList.get(i).neighborAdding(adjacencyList.get(checkExistance.get(0)));
                     }
