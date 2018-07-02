@@ -2,14 +2,21 @@ package ceit.aut.ac.ir;
 
 import java.util.ArrayList;
 
+/**
+ * This class is to colorize the graph with WeakColoring algorithm
+ */
 public class PaintingNodes {
     ArrayList<Node> graphNodes;
+
 
     public PaintingNodes(ArrayList<Node> nodes) {
         graphNodes = nodes;
 
     }
 
+    /**
+     * This method runs the main process; It colorize the graph with WeakColoring algorithm
+     */
     public void weakColoring() {
         boolean allColored = false;
         boolean[] tmpArray = new boolean[graphNodes.size()];
@@ -36,6 +43,10 @@ public class PaintingNodes {
         }
     }
 
+    /**
+     * Yhis method checks whether all the nodes are colorized or not
+     * @return
+     */
     public boolean checkAllcolored() {
         for (int i = 0; i < graphNodes.size(); i++) {
             if(graphNodes.get(i).getNodeColor()==0){

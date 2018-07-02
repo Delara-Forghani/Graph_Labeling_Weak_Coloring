@@ -1,5 +1,8 @@
 package ceit.aut.ac.ir;
 
+/**
+ * The class GraphEdge is to keep features of the edges of the graph like their vertices
+ */
 public class GraphEdge {
     private Node vertex1;
     private Node vertex2;
