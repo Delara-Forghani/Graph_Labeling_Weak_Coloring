@@ -11,7 +11,7 @@ public class WriteToFile {
     private StringBuilder str=new StringBuilder();
 
     public void WriteToFile(ConstructGraph graph) throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("out.txt"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("out3.txt"));
         for (int i = 0; i < graph.getAdjacencyList().size(); i++) {
             str.append(graph.getAdjacencyList().get(i).getNodeNum() + " " + ":" + " " + graph.getAdjacencyList().get(i).getNodeColor() + "\n");
         }

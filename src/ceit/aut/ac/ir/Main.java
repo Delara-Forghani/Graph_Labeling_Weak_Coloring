@@ -6,15 +6,25 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         ConstructGraph graph = new ConstructGraph();
-        PaintingNodes painting = new PaintingNodes(graph.getAdjacencyList());
-        painting.weakColoring();
-        System.out.println("***********");
-        System.out.println("Colors of the nodes by WeakColoring: ");
-        for (int i = 0; i < graph.getAdjacencyList().size(); i++) {
-            System.out.println(graph.getAdjacencyList().get(i).getNodeNum() + " " + ":" + " " +graph.getAdjacencyList().get(i).getNodeColor());
+        BreathFirstSearch bfs = new BreathFirstSearch(graph.adjacencyList);
+        System.out.println("Nodes and their Levels in the tree after BreathFirstSearch ");
+        for (int i = 0; i < graph.adjacencyList.size(); i++) {
+            System.out.println(graph.adjacencyList.get(i).getNodeNum() + " " + graph.adjacencyList.get(i).getLevel());
         }
-        WriteToFile writer=new WriteToFile();
-        writer.WriteToFile(graph);
+        PaintingNodes paintingNodes=new PaintingNodes(graph.adjacencyList);
+        paintingNodes.sortList();
+        System.out.println("List of nodes after sorting based on their level");
+        for (int i = 0; i < graph.adjacencyList.size(); i++) {
+            System.out.println(graph.adjacencyList.get(i).getNodeNum() + " " + graph.adjacencyList.get(i).getLevel());
+        }
+        paintingNodes.weakColoring(3);
+        System.out.println("Nodes and their colors after painting");
+        for (int i = 0; i < graph.adjacencyList.size(); i++) {
+            System.out.println(graph.adjacencyList.get(i).getNodeNum() + " " + graph.adjacencyList.get(i).getNodeColor());
+        }
+
+         WriteToFile writer=new WriteToFile();
+         writer.WriteToFile(graph);
 
 
     }

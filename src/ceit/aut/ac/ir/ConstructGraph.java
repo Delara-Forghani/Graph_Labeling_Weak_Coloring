@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 
 public class ConstructGraph {
-    File input = new File("C:\\Users\\Delara Forghani\\Desktop\\Input.txt");
+    File input = new File("C:\\Users\\Delara Forghani\\IdeaProjects\\GraphColoring\\in3.txt");
     ArrayList<GraphEdge> graph = new ArrayList<>();
     ArrayList<Node> adjacencyList = new ArrayList<>();
 
@@ -19,8 +19,8 @@ public class ConstructGraph {
         String line;
         while ((line = reader.readLine()) != null) {
             String vertices[] = line.split(" ");
-            Node vertex1 = new Node(Integer.parseInt(vertices[0]), 0);
-            Node vertex2 = new Node(Integer.parseInt(vertices[1]), 0);
+            Node vertex1 = new Node(Integer.parseInt(vertices[0]));
+            Node vertex2 = new Node(Integer.parseInt(vertices[1]));
             GraphEdge graphEdge = new GraphEdge(vertex1, vertex2);
             graph.add(graphEdge);
             ArrayList<Integer> checkExistance = checkExistance(graphEdge);
@@ -35,7 +35,8 @@ public class ConstructGraph {
         }
         for (int i = 1; i < isolationCheck.length; i++) {
             if (!isolationCheck[i]) {
-                Node isolateNode = new Node(i, 1);
+                Node isolateNode = new Node(i);
+                isolateNode.setNodeColor(0);
                 adjacencyList.add(isolateNode);
             }
         }
